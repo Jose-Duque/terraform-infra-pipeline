@@ -47,7 +47,7 @@ jobs:
                     -backend-config="region=${{ inputs.aws-region }}"
 
             - name: Terraform Validate
-              run: terraform validade
+              run: terraform validate
 
             - name: Terraform Plan
               id: terraform-plan
