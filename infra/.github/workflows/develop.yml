@@ -1,0 +1,19 @@
+name: "DEV DEPLOY"
+
+on:
+    push:
+        branches:
+            - main
+
+permissions:
+    id-token: write
+    contents: read
+
+jobs:
+    terraform:
+        uses: ./.github/workflows/terraform.yml
+        with:
+            environment: dev
+            aws-assume-role-arn: "arn:aws:iam::242201295581:role/github-actions-jose-duque-pipeline"
+            aws-region: "us-east-2"
+            aws-statefile-s3-bucket: "datamaster-us-east-2-terraform-statefile"
